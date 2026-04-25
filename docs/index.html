@@ -98,6 +98,14 @@
             font-size: 0.8rem;
         }
 
+        .lang-en {
+            display: none;
+        }
+
+        .lang-ja {
+            display: none;
+        }
+
         .footer {
             margin-top: 4rem;
             font-size: 0.85rem;
@@ -118,31 +126,69 @@
 </head>
 <body>
     <div class="container">
-        <h1>VMD</h1>
-        <h2>Virtual MIDI Device</h2>
+        <!-- English -->
+        <div class="lang-en">
+            <h1>VMD</h1>
+            <h2>Virtual MIDI Device</h2>
 
-        <img src="images/plugin_window.png" alt="VMD Plugin Window" class="plugin-image">
+            <img src="images/plugin_window.png" alt="VMD Plugin Window" class="plugin-image">
 
-        <a href="https://github.com/kurogedelic/vmd/releases/latest" class="download-button">
-            Download
-        </a>
+            <a href="https://github.com/kurogedelic/vmd/releases/latest" class="download-button">
+                Download
+            </a>
 
-        <div class="file-info">
-            ZIP Archive • 337 KB<br>
-            macOS 10.15+
+            <div class="file-info">
+                ZIP Archive • 337 KB<br>
+                macOS 10.15+
+            </div>
+
+            <div class="install-guide">
+                <h3>Installation</h3>
+                1. Download and unzip the archive<br>
+                2. Press <code>⌘ + Shift + G</code> in Finder<br>
+                3. Enter: <code>/Library/Audio/Plug-Ins/Components/</code><br>
+                4. Copy <code>VMD.component</code> to this folder
+            </div>
         </div>
 
-        <div class="install-guide">
-            <h3>Installation</h3>
-            1. Download and unzip the archive<br>
-            2. Press <code>⌘ + Shift + G</code> in Finder<br>
-            3. Enter: <code>/Library/Audio/Plug-Ins/Components/</code><br>
-            4. Copy <code>VMD.component</code> to this folder
+        <!-- Japanese -->
+        <div class="lang-ja">
+            <h1>VMD</h1>
+            <h2>Virtual MIDI Device</h2>
+
+            <img src="images/plugin_window.png" alt="VMD Plugin Window" class="plugin-image">
+
+            <a href="https://github.com/kurogedelic/vmd/releases/latest" class="download-button">
+                ダウンロード
+            </a>
+
+            <div class="file-info">
+                ZIPアーカイブ • 337 KB<br>
+                macOS 10.15+
+            </div>
+
+            <div class="install-guide">
+                <h3>インストール方法</h3>
+                1. アーカイブをダウンロードして解凍<br>
+                2. Finderで <code>⌘ + Shift + G</code> を押す<br>
+                3. 以下を入力: <code>/Library/Audio/Plug-Ins/Components/</code><br>
+                4. <code>VMD.component</code> をこのフォルダにコピー
+            </div>
         </div>
 
         <div class="footer">
             &copy; 2026 Hügelton Instruments, Kobe, Japan
         </div>
     </div>
+
+    <script>
+        // Detect browser language
+        const userLang = navigator.language || navigator.userLanguage;
+        const isJapanese = userLang.startsWith('ja');
+
+        // Show appropriate language
+        document.querySelector('.lang-en').style.display = isJapanese ? 'none' : 'block';
+        document.querySelector('.lang-ja').style.display = isJapanese ? 'block' : 'none';
+    </script>
 </body>
 </html>
